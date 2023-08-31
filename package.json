@@ -1,6 +1,6 @@
 {
-  "name": "rollup-plugin-postcss",
-  "version": "3.0.0",
+  "name": "rollup-plugin-postcss-mi",
+  "version": "0.0.1",
   "description": "Seamless integration between Rollup and PostCSS",
   "main": "dist/index.js",
   "files": [
@@ -16,24 +16,26 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/egoist/rollup-plugin-postcss.git"
+    "url": "git+https://github.com/isergey87/rollup-plugin-postcss.git"
   },
   "keywords": [
     "postcss",
-    "rollup"
+    "rollup",
+    "multi",
+    "separate"
   ],
-  "author": "EGOIST <0x142857@gmail.com>",
+  "author": "isergey87",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/egoist/rollup-plugin-postcss/issues"
+    "url": "https://github.com/isergey87/rollup-plugin-postcss/issues"
   },
   "engines": {
     "node": ">=10"
   },
   "types": "./types/index.d.ts",
-  "homepage": "https://github.com/egoist/rollup-plugin-postcss#readme",
+  "homepage": "https://github.com/isergey87/rollup-plugin-postcss#readme",
   "devDependencies": {
-    "@babel/core": "^7.12.9",
+    "@babel/core": "^7.22.11",
     "@babel/preset-env": "^7.12.7",
     "autoprefixer": "^10.0.4",
     "babel-core": "^7.0.0-bridge.0",
@@ -43,8 +45,8 @@
     "fs-extra": "^9.0.1",
     "jest": "^26.6.3",
     "less": "^3.12.2",
-    "node-sass": "^5.0.0",
-    "postcss": "^8.2.7",
+    "node-sass": "^9.0.0",
+    "postcss": "^8.2.13",
     "rollup": "^2.34.2",
     "stylus": "^0.54.8",
     "sugarss": "^3.0.3",
