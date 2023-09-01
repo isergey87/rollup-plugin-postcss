@@ -6,6 +6,10 @@ import normalizePath from './utils/normalize-path'
 
 const cssFilePathRegExp = new RegExp(/\/\*CSSImport:([^*]+)\*\//g);
 
+function removeModule(fileName) {
+  return fileName.replace(/\.module(\.[^.]*css$)/, '$1')
+}
+
 /**
  * The options that could be `boolean` or `object`
  * We convert it to an object when it's truthy
@@ -224,6 +228,7 @@ export default (options = {}) => {
           return entries.map((entry) => {
             let entryFilePath = path.relative(options.separateRelative, entry.id)
             entryFilePath = path.join(path.dirname(entryFilePath), path.basename(entryFilePath, path.extname(entryFilePath)) + '.css')
+            entryFilePath = removeModule(entryFilePath)
             const fileName = path.basename(entryFilePath)
             const concat = new Concat(true, fileName, '\n')
             const map = entry.map || null
@@ -299,7 +304,7 @@ export default (options = {}) => {
             code = code.replaceAll(cssFilePathRegExp, (_, absPath) => {
               const entryPath = path.dirname(path.join(dir, fileName))
               const cssPath = path.join(dir, path.relative(options.separateRelative, absPath))
-              return `require('./${normalizePath(path.relative(entryPath, cssPath))}');`
+              return `require('./${normalizePath(path.relative(entryPath, removeModule(cssPath)))}');\n`
             })
 
             bundle[bundleName].code = code;
